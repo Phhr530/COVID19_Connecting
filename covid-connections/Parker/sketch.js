@@ -1,4 +1,5 @@
 let button
+let button2
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -17,16 +18,23 @@ function setup() {
 
 
   button = createButton('Need Help');
-  button.position((width/2) +40, 250);
+  button.position((width/2) +40, 300);
   button.mousePressed(changeBG);
   button.size(200,100);
 
-  button = createButton('Want to Help Others');
-  button.position((width/2 -200), 250);
-  button.mousePressed(changeBG);
-  button.size(200,100);
+  button2 = createButton('Want to Help Others');
+  button2.position((width/2 -200), 300);
+  button2.mousePressed(changeBG);
+  button2.size(200,100);
 }
 
+function draw() {
+
+button.mousePressed(console.log("1"))
+
+  }
+
+
 function changeBG() {
-//take to next page
+
 }
