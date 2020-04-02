@@ -1,28 +1,28 @@
-let button;
-let CanvasX = 1920
-let CanvasY = 1080
+let button
+
 function setup() {
-  createCanvas(CanvasX, CanvasY);
+  createCanvas(windowWidth, windowHeight);
+  textAlign(CENTER)
   background(89, 85, 86);
   fill("white");
   textSize(30)
-  text("Welcome to the COVID-19 Connections Website", 10, 10, 500);
+  text("Welcome to the COVID-19 Connections Website", width/2, 50);
 
   fill("white");
   textSize(15)
-  text("This is a platform that allows people in need to contact others who want to help around their community", 10, 90, 490);
+  text("This is a platform that allows people in need to contact others who want to help around their community", width/2, 90);
   fill("white");
   textSize(15)
-  text("Select the box that applies to your situation", 100, 200, 490);
+  text("Select the box that applies to your situation", width/2, 200);
 
 
   button = createButton('Need Help');
-  button.position(40, 250);
+  button.position((width/2) +40, 250);
   button.mousePressed(changeBG);
   button.size(200,100);
 
   button = createButton('Want to Help Others');
-  button.position(260, 250);
+  button.position((width/2 -200), 250);
   button.mousePressed(changeBG);
   button.size(200,100);
 }
