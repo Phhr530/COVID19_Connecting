@@ -1,17 +1,40 @@
+let button
+let button2
+
 function setup() {
-  createCanvas(windowWidth, windowHeight)
-
-}
-function draw() {
+  createCanvas(windowWidth, windowHeight);
   textAlign(CENTER)
-  rectMode(CENTER)
-  background(89, 85, 86)
-  noStroke();
-  fill(255)
-  textSize(48)
-  text("I Want To Help Others",width/2,height/15)
-  fill(203, 55, 58)
-  rect(width/2,height/2, width/1.1, height/1.25, 10)
+  background(89, 85, 86);
+  fill("white");
+  textSize(30)
+  text("Welcome to the COVID-19 Connections Website", width/2, 50);
 
+  fill("white");
+  textSize(15)
+  text("This is a platform that allows people in need to contact others who want to help around their community", width/2, 90);
+  fill("white");
+  textSize(15)
+  text("Select the box that applies to your situation", width/2, 200);
+
+
+  button = createButton('Need Help');
+  button.position((width/2) +40, 300);
+  button.mousePressed(changeBG);
+  button.size(200,100);
+
+  button2 = createButton('Want to Help Others');
+  button2.position((width/2 -200), 300);
+  button2.mousePressed(changeBG);
+  button2.size(200,100);
+}
+
+function draw() {
+
+button.mousePressed(console.log("1"))
+
+  }
+
+
+function changeBG() {
 
 }
