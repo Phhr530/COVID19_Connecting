@@ -28,15 +28,9 @@ function setup() {
   button2.size(200,100);
 }
 
-function draw() {
-
-button.mousePressed(console.log("1"))
-
-  }
-
 
 function page1() {
-  function draw() {
+    console.log("1")
     createCanvas(windowWidth, windowHeight)
     textAlign(CENTER)
     rectMode(CENTER)
@@ -78,11 +72,11 @@ function page1() {
     tasks(windowWidth/2,windowHeight/3.75+windowHeight/3,"Person Person","Email","1234567890","city","Deliver Groceries")
   }
 
-}
+
 
 function page2() {
 
-  function setup() {
+    console.log("2")
     createCanvas(windowWidth, windowHeight)
     textAlign(CENTER)
     rectMode(CENTER)
@@ -109,7 +103,6 @@ function page2() {
 
   }
 
-  function draw() {
 
     //title text
     fill(255)
@@ -123,11 +116,7 @@ function page2() {
     textSize(width/22)
     text("What do you need help with?",windowWidth/2,windowHeight/6)
     //tasks
-  }
 
   function myInputEvent() {
     console.log('you are typing: ', this.value());
-
-  }
-
 }
