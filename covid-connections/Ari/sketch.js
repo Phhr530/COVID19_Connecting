@@ -1,6 +1,19 @@
 let button
 function setup() {
-
+    var firebaseConfig = {
+      apiKey: "AIzaSyBM-X8oScpf_a2LGz_nh177lZThuxehBOs",
+      authDomain: "covid-connecting.firebaseapp.com",
+      databaseURL: "https://covid-connecting.firebaseio.com",
+      projectId: "covid-connecting",
+      storageBucket: "covid-connecting.appspot.com",
+      messagingSenderId: "660927029900",
+      appId: "1:660927029900:web:323b3203531aa9162651a9",
+      measurementId: "G-MJ753QPMQQ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    console.log(firebase)
 }
 function draw() {
   createCanvas(windowWidth, windowHeight)
@@ -17,7 +30,7 @@ function draw() {
   rect(windowWidth/2,windowHeight/2, windowWidth/1.1, windowHeight/1.25, 10)
   //subtitle text
   fill(255)
-  textSize(width/22)
+  textSize(width/24)
   text("Tasks You Can Help With",windowWidth/2,windowHeight/6)
   //tasks
   function tasks(posX,posY,fullName,email,phoneNum,city,task) {
