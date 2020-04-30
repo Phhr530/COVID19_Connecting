@@ -30,7 +30,9 @@ function setup() {
 
 
 function page1() {
-    console.log("1")
+    console.log("1");
+    button.hide();
+    button2.hide();
     createCanvas(windowWidth, windowHeight)
     textAlign(CENTER)
     rectMode(CENTER)
@@ -77,6 +79,8 @@ function page1() {
 function page2() {
 
     console.log("2")
+    button.hide();
+    button2.hide();
     createCanvas(windowWidth, windowHeight)
     textAlign(CENTER)
     rectMode(CENTER)
