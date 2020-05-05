@@ -1,6 +1,8 @@
 let button
 let button2
 let numInp
+let mailInp
+let needsInp
 
 function setup() {
 
@@ -20,12 +22,12 @@ function setup() {
   text("Select the box that applies to your situation", width/2, 200);
 
 
-  button = createButton('Need Help');
+  button = createButton('I Want To Help Others');
   button.position((width/2) +40, 300);
   button.mousePressed(page1);
   button.size(200,100);
 
-  button2 = createButton('Want to Help Others');
+  button2 = createButton('I Need Help');
   button2.position((width/2 -200), 300);
   button2.mousePressed(page2);
   button2.size(200,100);
@@ -105,20 +107,20 @@ function page2() {
     background(89, 85, 86)
     noStroke();
 
-      let needsInp = createInput('Type your needs in this box');
-      needsInp.input(myInputEvent);
-      needsInp.position(width/6,height/4);
-      needsInp.size(500,50);
+    needsInp = createInput('Type your needs in this box');
+    needsInp.input(myInputEvent);
+    needsInp.position(width/6,height/4);
+    needsInp.size(500,50);
 
-        numInp = createInput('Cell or Home Phone Number');
-        numInp.input(myInputEvent);
-        numInp.position(width/6,height/3);
-        numInp.size(500,50);
+    numInp = createInput('Cell or Home Phone Number');
+    numInp.input(myInputEvent);
+    numInp.position(width/6,height/3);
+    numInp.size(500,50);
 
-        let mailInp = createInput('Email');
-        mailInp.input(myInputEvent);
-        mailInp.position(width/6,height/2.4);
-        mailInp.size(500,50);
+    mailInp = createInput('Email');
+    mailInp.input(myInputEvent);
+    mailInp.position(width/6,height/2.4);
+    mailInp.size(500,50);
 
     let sub = createButton('Submit')
       sub.position(width/1.25,height/2);
@@ -132,7 +134,10 @@ function page2() {
 
 function sendData(){
   var data = {
-    Number: numInp.value(),
+    Number:numInp.value(),
+    Email: mailInp.value(),
+    Needs: needsInp.value()
+
     //add other inputs
   }
   console.log(data);
