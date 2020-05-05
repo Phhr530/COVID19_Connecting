@@ -1,7 +1,10 @@
 let button
 let button2
+let numInp
 
 function setup() {
+
+  //Starting page code
   createCanvas(windowWidth, windowHeight);
   textAlign(CENTER)
   background(89, 85, 86);
@@ -26,8 +29,23 @@ function setup() {
   button2.position((width/2 -200), 300);
   button2.mousePressed(page2);
   button2.size(200,100);
-}
 
+
+  //Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAmrqGl89OcngLxTS7-XbnqxVkEBQXKdC4",
+    authDomain: "fir-example-fb43a.firebaseapp.com",
+    databaseURL: "https://fir-example-fb43a.firebaseio.com",
+    projectId: "fir-example-fb43a",
+    storageBucket: "fir-example-fb43a.appspot.com",
+    messagingSenderId: "466331818871",
+    appId: "1:466331818871:web:5ee2dfbfa32f712bb71f72",
+    measurementId: "G-3364KHHZD1"
+  };
+  firebase.initializeApp(firebaseConfig);
+  database = firebase.database();
+
+}
 
 function page1() {
     console.log("1");
@@ -87,40 +105,37 @@ function page2() {
     background(89, 85, 86)
     noStroke();
 
-    let inp = createInput('Type your needs in this box');
-      inp.input(myInputEvent);
-      inp.position(width/6,height/4);
-      inp.size(500,50);
+      let needsInp = createInput('Type your needs in this box');
+      needsInp.input(myInputEvent);
+      needsInp.position(width/6,height/4);
+      needsInp.size(500,50);
 
-        inp = createInput('Cell or Home Phone Number');
-        inp.input(myInputEvent);
-        inp.position(width/6,height/3);
-        inp.size(500,50);
+        numInp = createInput('Cell or Home Phone Number');
+        numInp.input(myInputEvent);
+        numInp.position(width/6,height/3);
+        numInp.size(500,50);
 
-        inp = createInput('Email');
-        inp.input(myInputEvent);
-        inp.position(width/6,height/2.4);
-        inp.size(500,50);
+        let mailInp = createInput('Email');
+        mailInp.input(myInputEvent);
+        mailInp.position(width/6,height/2.4);
+        mailInp.size(500,50);
 
-    let sub = createButton('Sumbit')
+    let sub = createButton('Submit')
       sub.position(width/1.25,height/2);
+      sub.mousePressed(sendData)
 
   }
 
-
-    //title text
-    fill(255)
-    textSize(width/18)
-    text("I Would Like to Help",windowWidth/2,windowHeight/15)
-    //big box
-    fill(203, 55, 58)
-    rect(windowWidth/2,windowHeight/2, windowWidth/1.1, windowHeight/1.25, 10)
-    //subtitle text
-    fill(255)
-    textSize(width/22)
-    text("What do you need help with?",windowWidth/2,windowHeight/6)
-    //tasks
-
   function myInputEvent() {
-    console.log('you are typing: ', this.value());
+
+}
+
+function sendData(){
+  var data = {
+    Number: numInp.value(),
+    //add other inputs
+  }
+  console.log(data);
+  var ref = database.ref('info');
+  ref.push(data);
 }
