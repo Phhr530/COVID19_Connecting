@@ -47,6 +47,30 @@ function setup() {
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
 
+  var ref = database.ref('info');
+   ref.on('value', gotData, errData);
+
+}
+
+function gotData(data) {
+   // console.log(data.val());
+    var people = data.val();
+    var keys = Object.keys(people);
+    console.log(keys);
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      var email = people[k].Email;
+      var needs = people[k].Needs;
+      var number = people[k].Number;
+
+      console.log(needs, number , email);
+
+      }
+ }
+
+ function errData(err) {
+  console.log('Error!');
+  console.log(err);
 }
 
 function page1() {
